@@ -8,17 +8,17 @@ type ContaCorrente struct {
 	saldo                      float64
 }
 
-func (c *ContaCorrente) Sacar(valorDoSaque float64) (string, float64) {
+func (c *ContaCorrente) Sacar(valorDoSaque float64) string {
 	if valorDoSaque > c.saldo {
-		return "Saldo insuficiente", c.saldo
+		return "Saldo insuficiente"
 	}
 
 	if valorDoSaque < 0 {
-		return "Valor do saque menor que zero", c.saldo
+		return "Valor do saque menor que zero"
 	}
 
 	c.saldo -= valorDoSaque
-	return "Saque realizado com sucesso", c.saldo
+	return "Saque realizado com sucesso"
 }
 
 func (c *ContaCorrente) Depositar(valorDeDeposito float64) (string, float64) {
